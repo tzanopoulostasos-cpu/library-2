@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Βιβλιοθήκη - Ρεαλιστικό Ράφι</title>
+    
+    <!-- ========== SEO & SOCIAL META TAGS ========== -->
+    <meta name="description" content="Διαδραστική 3D βιβλιοθήκη για ταλαντώσεις - Φυσική, Μαθηματικά, Εκπαίδευση">
+    <meta name="keywords" content="ταλαντώσεις, φυσική, μαθηματικά, βιβλιοθήκη, 3D, εκπαίδευση, Ελλάδα">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="3D Βιβλιοθήκη Ταλαντώσεων - Δωρεάν Εκπαιδευτικό Εργαλείο">
+    <meta property="og:description" content="Διαδραστικό εκπαιδευτικό εργαλείο για φυσική και μαθηματικά">
+    <meta property="og:image" content="https://i.postimg.cc/QdCS3xsb/interactive-library.png">
+    <meta property="og:url" content="https://httpmyphysics.blogspot.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="3D Βιβλιοθήκη Ταλαντώσεων">
+    <meta name="twitter:description" content="Διαδραστική εκπαίδευση στη φυσική">
+    <meta name="twitter:image" content="https://i.imgur.com/HA0YgLN.png">
+    
+    <!-- ========== FONT AWESOME ICONS (ΑΥΤΟ ΜΕΝΕΙ!) ========== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ========== TITLE ========== -->
+    <title>3D Βιβλιοθήκη Ταλαντώσεων - Δωρεάν Εκπαιδευτικό Εργαλείο</title>
+    
+    <!-- ========== CUSTOM CSS ========== -->
     <style>
-        /* ΒΑΣΙΚΑ */
+      
+  /* ΒΑΣΙΚΑ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            
+
             color: #e0e0e0;
             padding: 40px 20px;
             min-height: 100vh;
@@ -21,7 +45,7 @@
             margin: 0 auto;
             background: rgba(30, 30, 46, 0.95);
             border-radius: 20px;
-            padding: 40px;
+            padding: 25px 30px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             border: 1px solid #3a3a5d;
             position: relative;
@@ -29,8 +53,8 @@
         h1 {
             text-align: center;
             color: #f0e6d2;
-            margin-bottom: 10px;
-            font-size: 2.8rem;
+            margin-bottom: 5px;
+            font-size: 2.2rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
         }
@@ -41,8 +65,8 @@
         .subtitle {
             text-align: center;
             color: #b8b8b8;
-            margin-bottom: 50px;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-size: 1rem;
             font-style: italic;
         }
 
@@ -136,46 +160,12 @@
             border-radius: 4px 2px 2px 4px;
             position: relative;
             box-shadow:
-                inset 3px 0 6px rgba(0,0,0,0.4),
-                6px 6px 20px rgba(0,0,0,0.6);
-            border-right: 2px solid rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            padding: 25px 12px 15px 12px;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-            font-weight: bold;
+                inset 3px 0 6px rgba(0,0,0,0.3),
+                6px 6px 20px rgba(0,0,0,0.5);
+            border-right: 2px solid rgba(0,0,0,0.2);
             overflow: hidden;
-        }
-        .spine-text {
-            text-orientation: mixed;
-            height: 100%;
-            width: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-        }
-        .book-title {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            padding: 0 8px;
-            word-break: break-word;
-            max-height: 150px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
-        }
-        .book-author {
-            font-size: 0.75rem;
-            opacity: 0.9;
-            font-style: italic;
-            padding-top: 8px;
-            border-top: 1px dashed rgba(255,255,255,0.3);
-            width: 90%;
+            /* ΑΡΧΙΚΟ FILTER ΠΟΥ ΔΟΥΛΕΥΕ */
+            filter: brightness(1.3) saturate(1.3) !important;
         }
 
         /* ΕΞΩΦΥΛΛΟ ΒΙΒΛΙΟΥ */
@@ -198,6 +188,8 @@
             overflow: hidden;
             z-index: 10;
             border-left: 2px solid rgba(255,255,255,0.1);
+            /* ΑΡΧΙΚΟ FILTER ΠΟΥ ΔΟΥΛΕΥΕ */
+            filter: brightness(1.4) saturate(1.4) !important;
         }
         
         .book-cover::before {
@@ -219,7 +211,7 @@
             border-radius: 0 8px 8px 0;
         }
 
-        /* ΕΠΙΛΕΓΜΕΝΟ ΒΙΒΛΙΟ - ΜΟΝΟ ΑΥΤΟ ΑΝΟΙΓΕΙ */
+        /* ΕΠΙΛΕΓΜΕΝΟ ΒΙΒΛΙΟ */
         .book.selected .book-cover {
             transform: perspective(700px) rotateY(-25deg) !important;
         }
@@ -229,17 +221,48 @@
             transform: perspective(700px) rotateY(-25deg) translateX(-50px) !important;
         }
 
-        /* ΧΡΩΜΑΤΑ ΡΑΧΩΝ */
-        /*.book-spine.color-1 { background-color: #2C3E50; }
-        .book-spine.color-2 { background-color: #27AE60; }
-        .book-spine.color-3 { background-color: #2980B9; }
-        .book-spine.color-4 { background-color: #8E44AD; }
-        .book-spine.color-5 { background-color: #D35400; }
-        .book-spine.color-6 { background-color: #C0392B; }
-        .book-spine.color-7 { background-color: #16A085; }
-        .book-spine.color-8 { background-color: #7F8C8D; }*/
+        /* ========== ΔΕΞΙΑ ΒΙΒΛΙΑ ========== */
+        .books-row .book:nth-child(even) .book-cover {
+            left: auto;
+            right: 100%;
+            border-radius: 8px 0 0 8px;
+            box-shadow: 
+                -10px 0 30px rgba(0,0,0,0.6),
+                inset -3px 0 8px rgba(255,255,255,0.1);
+            transform-origin: right;
+            transform: perspective(700px) rotateY(90deg);
+            border-left: none;
+            border-right: 2px solid rgba(255,255,255,0.1);
+        }
 
-        /* ΒΕΛΑΚΙΑ ΠΛΟΗΓΗΣΗΣ */
+        .books-row .book:nth-child(even) .book-cover::before {
+            background: linear-gradient(
+                to left,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.1) 30%,
+                transparent 60%,
+                transparent 100%
+            );
+        }
+
+        .books-row .book.selected:nth-child(even) .book-cover {
+            transform: perspective(700px) rotateY(25deg) !important;
+        }
+
+        .books-row .book:nth-child(even) .book-spine {
+            border-radius: 2px 4px 4px 2px;
+            border-left: 2px solid rgba(0,0,0,0.2);
+            border-right: none;
+            box-shadow:
+                inset -3px 0 6px rgba(0,0,0,0.3),
+                6px 6px 20px rgba(0,0,0,0.5);
+        }
+
+        .books-row .book.selected:nth-child(even) {
+            transform: translateY(-20px) translateX(-15px) !important;
+        }
+
+        /* ΤΟ ΥΠΟΛΟΙΠΟ CSS ΜΕΝΕΙ ΙΔΙΟ (βέλη, κουμπιά, κλπ) */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -269,7 +292,6 @@
         .nav-arrow.left { left: 20px; }
         .nav-arrow.right { right: 20px; }
 
-        /* ΚΟΥΚΚΙΔΕΣ ΡΑΦΙΩΝ */
         .shelf-indicators {
             text-align: center;
             margin-top: 45px;
@@ -295,60 +317,55 @@
             transform: scale(1.2);
         }
 
-        /* ΚΟΥΜΠΙ ΔΙΑΒΑΣΜΑΤΟΣ */
-        .read-btn {
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
             display: inline-block;
             background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
             color: #f0e6d2;
-            padding: 14px 30px;
+            padding: 10px 18px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             transition: all 0.4s ease;
             border: 2px solid #D2691E;
             box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-            margin-top: 20px;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
             font-family: 'Georgia', 'Times New Roman', serif;
             position: relative;
             overflow: hidden;
+            min-width: 140px;
+            text-align: center;
         }
-        .read-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.7s ease;
-        }
-        .read-btn:hover {
+        
+        .action-btn:hover {
             background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
             color: #ffffff;
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
         }
-        .read-btn:hover::before {
-            left: 100%;
+        
+        .download-btn {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            border-color: #3498db;
         }
-        .read-btn i {
-            color: inherit;
-            margin-right: 10px;
-            transition: transform 0.4s ease;
-        }
-        .read-btn:hover i {
-            transform: translateX(5px) scale(1.1);
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #34495E 0%, #2C3E50 100%);
         }
 
-        /* ΕΠΙΛΕΓΜΕΝΟ ΒΙΒΛΙΟ INFO */
         #selectedBookInfo {
             text-align: center;
-            margin-top: 50px;
-            padding: 30px;
+            margin-top: 30px;
+            padding: 20px;
             background: rgba(26, 26, 46, 0.8);
             border-radius: 12px;
             border: 1px solid #3a3a5d;
@@ -358,8 +375,8 @@
         }
         #selectedBookInfo h3 {
             color: #f0e6d2;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
         #selectedBookInfo span {
@@ -367,87 +384,121 @@
             font-style: italic;
         }
 
-        /* ANIMATIONS */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ΕΙΚΟΝΕΣ ΕΞΩΦΥΛΛΩΝ */
-        .book-cover[data-image="physics"] {
-            background: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="philosophy"] {
-            background: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="programming"] {
-            background: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="chemistry"] {
-            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="astrophysics"] {
-            background: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="psychology"] {
-            background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="economics"] {
-            background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="linguistics"] {
-            background: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="history"] {
-            background: url('https://images.unsplash.com/photo-1589998059171-988d887df646?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="mathematics"] {
-            background: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="biology"] {
-            background: url('https://images.unsplash.com/photo-1530026405186-1d5d58e3046d?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-        .book-cover[data-image="politics"] {
-            background: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=80') center/cover !important;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            .books-row .book:nth-child(even) .book-cover {
+                width: 220px;
+            }
             .books-row .book.selected:nth-child(even) .book-cover {
-                transform: perspective(700px) rotateY(-20deg) translateX(-30px) !important;
+                transform: perspective(700px) rotateY(20deg) !important;
             }
             .book.selected .book-cover {
                 transform: perspective(700px) rotateY(-20deg) !important;
             }
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .action-btn {
+                width: 100%;
+                max-width: 250px;
+            }
         }
-    /* ========== ΒΑΣΙΚΕΣ ΔΙΟΡΘΩΣΕΙΣ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ ========== */
 
-/* ΓΙΑ ΟΛΑ ΤΑ ΒΙΒΛΙΑ - ΒΑΣΙΚΗ ΣΤΗΛΗ */
-.book {
-    width: 100%;
-    max-width: 170px;
-    position: relative;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    z-index: 1;
+        @media (max-width: 576px) {
+            .books-row .book:nth-child(even) .book-cover {
+                width: 180px;
+            }
+        }
+   .book.selected .book-spine {
+    box-shadow:
+        inset 3px 0 6px rgba(0,0,0,0.35),
+        10px 12px 30px rgba(0,0,0,0.7);
+}
+/* ΚΕΝΤΡΑΡΙΣΜΑ ΤΙΤΛΩΝ ΡΑΦΙΩΝ */
+.shelf-title {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    color: #f0e6d2;
+    
+    background: linear-gradient(135deg, #3E2723, #5D4037);
+    border: 2px solid #D2691E;
+    border-radius: 8px;
+    
+    padding: 10px 22px;
+    display: block; /* Αλλαγή από inline-block σε block */
+    width: fit-content; /* Προσαρμόζεται στο περιεχόμενο */
+    margin-left: auto; /* Αυτό κάνει το κεντράρισμα */
+    margin-right: auto; /* Αυτό κάνει το κεντράρισμα */
+    
+    box-shadow: 
+        0 6px 15px rgba(0,0,0,0.6),
+        inset 0 1px 3px rgba(255,255,255,0.1);
+    
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    
+    /* Προαιρετικό: Μεταβλητό width για μεγάλους τίτλους */
+    max-width: 80%;
+    word-wrap: break-word;
+    text-align: center;
 }
 
-/* ΒΙΒΛΙΑ ΣΤΗ ΔΕΞΙΑ ΣΤΗΛΗ (2ο, 4ο, κλπ) */
-.books-row .book:nth-child(even) {
-    /* Για εναλλαγή κατεύθυνσης */
+.shelf-title::before {
+    content: "ΘΕΜΑ:";
+    margin-right: 8px;
+    color: #D2691E;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+/* Προσθήκη gradient text */
+    background: linear-gradient(to right, #f0e6d2, #D2691E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    /* Ή παραδοσιακό χρώμα */
+    /* color: #f0e6d2; */
+    
+    /* Προσθήκη animation */
+    animation: titleGlow 3s infinite alternate;
 }
 
-/* ΕΞΩΦΥΛΛΟ ΒΙΒΛΙΟΥ - ΑΡΙΣΤΕΡΑ ΒΙΒΛΙΑ (default) */
-.book .book-cover {
-    position: absolute;
-    top: 0;
-    left: 100%; /* Από δεξιά για αριστερά βιβλία */
-    width: 320px;
+@keyframes titleGlow {
+    from {
+        box-shadow: 
+            0 6px 15px rgba(0,0,0,0.6),
+            inset 0 1px 3px rgba(255,255,255,0.1);
+    }
+    to {
+        box-shadow: 
+            0 6px 20px rgba(210, 105, 30, 0.4),
+            inset 0 1px 3px rgba(255,255,255,0.1);
+    }
+}
+
+/* ========== ΤΕΛΙΚΟ CSS ΓΙΑ ΤΑ ΕΞΩΦΥΛΛΑ ========== */
+
+.book-cover {
+    width: 280px;
     height: 100%;
-    background-size: cover !important;
-    background-position: center !important;
+    
+    /* ΑΥΤΕΣ ΕΙΝΑΙ ΟΙ ΚΡΙΤΙΚΕΣ ΑΛΛΑΓΕΣ */
+    background-size: contain !important;
+    background-position: center center !important;
     background-repeat: no-repeat !important;
-    border-radius: 0 8px 8px 0; /* Στρογγυλεμένη δεξιά πλευρά */
+    background-color: rgba(30, 30, 46, 0.95) !important;
+    
+    /* ΤΑ ΥΠΟΛΟΙΠΑ ΜΕΝΟΥΝ ΑΚΡΙΒΩΣ ΙΔΙΑ */
+    border-radius: 0 8px 8px 0;
     box-shadow: 
         10px 0 30px rgba(0,0,0,0.6),
         inset 3px 0 8px rgba(255,255,255,0.1);
@@ -457,293 +508,56 @@
     overflow: hidden;
     z-index: 10;
     border-left: 2px solid rgba(255,255,255,0.1);
+    filter: brightness(1.4) saturate(1.4) !important;
 }
 
-/* ΕΞΩΦΥΛΛΟ ΒΙΒΛΙΟΥ - ΔΕΞΙΑ ΒΙΒΛΙΑ (ανοίγουν από αριστερά) */
+/* ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ */
 .books-row .book:nth-child(even) .book-cover {
+    width: 280px;
     left: auto;
-    right: 100%; /* Από αριστερά για δεξιά βιβλία */
-    border-radius: 8px 0 0 8px; /* Στρογγυλεμένη αριστερή πλευρά */
+    right: 100%;
+    border-radius: 8px 0 0 8px;
+    
+    /* ΙΔΙΕΣ ΡΥΘΜΙΣΕΙΣ */
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-color: rgba(30, 30, 46, 0.95) !important;
+    
     box-shadow: 
         -10px 0 30px rgba(0,0,0,0.6),
         inset -3px 0 8px rgba(255,255,255,0.1);
     transform-origin: right;
-    transform: perspective(700px) rotateY(90deg); /* Αντίθετη κατεύθυνση */
+    transform: perspective(700px) rotateY(90deg);
     border-left: none;
     border-right: 2px solid rgba(255,255,255,0.1);
 }
 
-/* GRADIENT OVERLAY ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ */
-.books-row .book:nth-child(even) .book-cover::before {
-    background: linear-gradient(
-        to left, /* Αντίθετη κατεύθυνση */
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.1) 30%,
-        transparent 60%,
-        transparent 100%
-    );
-}
-
-/* ΕΠΙΛΕΓΜΕΝΟ ΒΙΒΛΙΟ - ΑΡΙΣΤΕΡΑ ΒΙΒΛΙΑ */
+/* BONUS: Βελτίωση όταν είναι ανοιχτό */
 .book.selected .book-cover {
-    transform: perspective(700px) rotateY(-25deg) !important;
+    filter: brightness(1.6) saturate(1.6) contrast(1.1) !important;
 }
 
-/* ΕΠΙΛΕΓΜΕΝΟ ΒΙΒΛΙΟ - ΔΕΞΙΑ ΒΙΒΛΙΑ (ανοίγουν προς τα δεξιά) */
-.books-row .book.selected:nth-child(even) .book-cover {
-    transform: perspective(700px) rotateY(25deg) !important; /* Θετική γωνία */
-}
-
-/* ΡΑΧΗ ΒΙΒΛΙΟΥ - ΔΕΞΙΑ ΒΙΒΛΙΑ (αντίστροφη σκιά) */
-.books-row .book:nth-child(even) .book-spine {
-    border-radius: 2px 4px 4px 2px; /* Αντίστροφη στρογγυλοποίηση */
-    border-left: 2px solid rgba(0,0,0,0.3);
-    border-right: none;
-    box-shadow:
-        inset -3px 0 6px rgba(0,0,0,0.4), /* Αντίστροφη σκιά */
-        6px 6px 20px rgba(0,0,0,0.6);
-}
-
-/* ΜΙΚΡΗ ΜΕΤΑΚΙΝΗΣΗ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ */
-.books-row .book.selected:nth-child(even) {
-    transform: translateY(-20px) translateX(-15px) !important; /* Αριστερή μετακίνηση */
-}
-
-/* Z-INDEX ΔΙΟΡΘΩΣΗ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ */
-.books-row .book:nth-child(even) {
-    z-index: 2; /* Πιο ψηλά για καλύτερο overlap */
-}
-
-/* RESPONSIVE ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+    .book-cover,
     .books-row .book:nth-child(even) .book-cover {
         width: 220px;
-    }
-    
-    .book.selected .book-cover {
-        transform: perspective(700px) rotateY(-20deg) !important;
-    }
-    
-    .books-row .book.selected:nth-child(even) .book-cover {
-        transform: perspective(700px) rotateY(20deg) !important;
-    }
-    
-    .books-row .book.selected:nth-child(even) {
-        transform: translateY(-20px) translateX(-10px) !important;
     }
 }
 
 @media (max-width: 576px) {
+    .book-cover,
     .books-row .book:nth-child(even) .book-cover {
         width: 180px;
     }
 }
-  /* ΕΙΚΟΝΕΣ ΡΑΧΩΝ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ (αν θέλεις) */
-.books-row .book:nth-child(even) .book-spine {
-    background-position: center right 25% !important;
-}
-
-/* ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΑ ΒΙΒΛΙΑ */
-.books-row .book:nth-child(even)[data-cover="philosophy"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600') !important;
-    background-size: cover !important;
-    background-position: center right 25% !important;
-}/* ========== ΕΙΚΟΝΕΣ ΡΑΧΩΝ ΓΙΑ ΟΛΑ ΤΑ ΒΙΒΛΙΑ ========== */
-
-/* ΦΥΣΙΚΗ */
-.book[data-cover="physics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΦΙΛΟΣΟΦΙΑ */
-.book[data-cover="philosophy"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ */
-.book[data-cover="programming"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΧΗΜΕΙΑ */
-.book[data-cover="chemistry"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΑΣΤΡΟΦΥΣΙΚΗ */
-.book[data-cover="astrophysics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΨΥΧΟΛΟΓΙΑ */
-.book[data-cover="psychology"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΟΙΚΟΝΟΜΙΚΑ */
-.book[data-cover="economics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΓΛΩΣΣΟΛΟΓΙΑ */
-.book[data-cover="linguistics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΙΣΤΟΡΙΑ */
-.book[data-cover="history"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1589998059171-988d887df646?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΜΑΘΗΜΑΤΙΚΑ */
-.book[data-cover="mathematics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΒΙΟΛΟΓΙΑ */
-.book[data-cover="biology"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1530026405186-1d5d58e3046d?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ΠΟΛΙΤΙΚΗ */
-.book[data-cover="politics"] .book-spine {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&auto=format&fit=crop&q=60') !important;
-    background-size: cover !important;
-    background-position: center left 25% !important;
-}
-
-/* ========== ΕΙΔΙΚΑ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ (ΑΝΤΙΣΤΡΟΦΗ ΘΕΣΗ) ========== */
-
-/* ΔΕΞΙΑ ΒΙΒΛΙΑ - ΑΝΤΙΣΤΡΟΦΗ ΘΕΣΗ ΕΙΚΟΝΑΣ */
-.books-row .book:nth-child(even)[data-cover="physics"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="philosophy"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="programming"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="chemistry"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="astrophysics"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="psychology"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="economics"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="linguistics"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="history"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="mathematics"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="biology"] .book-spine,
-.books-row .book:nth-child(even)[data-cover="politics"] .book-spine {
-    background-position: center right 25% !important;
-}
-
-/* ========== ΒΕΛΤΙΩΣΗ ΟΡΑΤΟΤΗΤΑΣ ΚΕΙΜΕΝΟΥ ========== */
-
-/* ΚΑΛΥΤΕΡΟ CONTRAST ΓΙΑ ΤΟ ΚΕΙΜΕΝΟ */
-.book-spine .book-title,
-.book-spine .book-author {
-    position: relative;
-    z-index: 2;
-    text-shadow: 
-        1px 1px 3px rgba(0,0,0,0.8),
-        0 0 8px rgba(0,0,0,0.5) !important;
-}
-
-/* OVERLAY ΓΙΑ ΚΑΛΥΤΕΡΗ ΑΝΑΓΝΩΣΗ */
-.book-spine::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.4) 0%,
-        rgba(0,0,0,0.2) 30%,
-        rgba(0,0,0,0.1) 50%,
-        rgba(0,0,0,0.2) 70%,
-        rgba(0,0,0,0.4) 100%
-    );
-    z-index: 1;
-    pointer-events: none;
-    border-radius: 4px 2px 2px 4px;
-}
-
-/* ΔΕΞΙΑ ΒΙΒΛΙΑ - ΑΝΤΙΣΤΡΟΦΟ OVERLAY */
-.books-row .book:nth-child(even) .book-spine::before {
-    background: linear-gradient(
-        to left,
-        rgba(0,0,0,0.4) 0%,
-        rgba(0,0,0,0.2) 30%,
-        rgba(0,0,0,0.1) 50%,
-        rgba(0,0,0,0.2) 70%,
-        rgba(0,0,0,0.4) 100%
-    );
-    border-radius: 2px 4px 4px 2px;
-}
-
-/* ========== ΑΦΑΙΡΕΣΗ ΤΩΝ ΧΡΩΜΑΤΩΝ ========== */
-
-/* ΑΦΑΙΡΕΣΕ ΑΥΤΑ ΑΝ ΥΠΑΡΧΟΥΝ: */
-/*
-.book-spine.color-1 { background-color: #2C3E50; }
-.book-spine.color-2 { background-color: #27AE60; }
-.book-spine.color-3 { background-color: #2980B9; }
-.book-spine.color-4 { background-color: #8E44AD; }
-.book-spine.color-5 { background-color: #D35400; }
-.book-spine.color-6 { background-color: #C0392B; }
-.book-spine.color-7 { background-color: #16A085; }
-.book-spine.color-8 { background-color: #7F8C8D; }
-*/
-  /* ΓΡΗΓΟΡΗ ΛΥΣΗ: ΠΙΟ ΦΩΤΕΙΝΑ ΒΙΒΛΙΑ */
-.book-spine {
-    filter: brightness(1.3) saturate(1.3) !important;
-}
-
-.book-cover {
-    filter: brightness(1.4) saturate(1.4) !important;
-}
-
-/* ΜΕΙΩΣΗ ΣΚΙΑΣ ΓΙΑ ΠΙΟ ΦΩΤΕΙΝΗ ΕΜΦΑΝΙΣΗ */
-.book-spine {
-    box-shadow:
-        inset 3px 0 6px rgba(0,0,0,0.3), /* ΠΙΟ ΑΡΑΙΗ ΣΚΙΑ */
-        6px 6px 20px rgba(0,0,0,0.5);    /* ΠΙΟ ΑΡΑΙΗ ΕΞΩΤΕΡΙΚΗ ΣΚΙΑ */
-}</style>
+</style>
 </head>
 <body>
     <div class="container">
-        <h1><i class="fas fa-book"></i> Κλασική Βιβλιοθήκη</h1>
-        <p class="subtitle">Περιηγηθείτε στα ράφια και επιλέξτε ένα βιβλίο για να το εξετάσετε</p>
+        <h1><i class="fas fa-book"></i> Ενότητα: Ταλαντώσεις</h1>
+        <p class="subtitle">Περιηγηθείτε στα ράφια και επιλέξτε ένα ΘΕΜΑ για να το εξετάσετε</p>
 
         <div class="library-viewport">
             <button class="nav-arrow left" id="prevShelf" aria-label="Προηγούμενο ράφι">
@@ -753,43 +567,25 @@
             <div class="shelves-track" id="shelvesTrack">
                 <!-- ΡΑΦΙ 1 -->
                 <div class="shelf-unit">
-                    <div class="shelf-board"></div>
+                    <div class="shelf-title">Απλές αρμονικές ταλαντώσεις</div>
+<div class="shelf-board"></div>
                     <div class="books-row">
-                        <div class="book" data-cover="physics">
-                            <div class="book-spine color-1">
-                                <div class="spine-text">
-                                    <div class="book-title">Φυσική των Σωματιδίων</div>
-                                    <div class="book-author">Α. Παπαδόπουλος</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="physics"></div>
+                        <!-- ΑΠΛΟΠΟΙΗΜΕΝΑ ΒΙΒΛΙΑ ΧΩΡΙΣ ΚΕΙΜΕΝΟ -->
+                        <div class="book" data-cover="book1" data-pdf="book1.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="philosophy">
-                            <div class="book-spine color-2">
-                                <div class="spine-text">
-                                    <div class="book-title">Ιστορία της Φιλοσοφίας</div>
-                                    <div class="book-author">Μ. Κωνσταντινίδου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="philosophy"></div>
+                        <div class="book" data-cover="book2" data-pdf="book2.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="programming">
-                            <div class="book-spine color-3">
-                                <div class="spine-text">
-                                    <div class="book-title">Αρχές Λογικού Προγραμματισμού</div>
-                                    <div class="book-author">Ν. Αντωνίου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="programming"></div>
+                        <div class="book" data-cover="book3" data-pdf="book3.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="chemistry">
-                            <div class="book-spine color-4">
-                                <div class="spine-text">
-                                    <div class="book-title">Βασική Οργανική Χημεία</div>
-                                    <div class="book-author">Κ. Δημητρίου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="chemistry"></div>
+                        <div class="book" data-cover="book4" data-pdf="book4.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
                     </div>
                     <div class="shelf-board-bottom"></div>
@@ -798,43 +594,24 @@
 
                 <!-- ΡΑΦΙ 2 -->
                 <div class="shelf-unit">
-                    <div class="shelf-board"></div>
+                    <div class="shelf-title">Φθίνουσες ταλαντώσεις</div>
+<div class="shelf-board"></div>
                     <div class="books-row">
-                        <div class="book" data-cover="astrophysics">
-                            <div class="book-spine color-5">
-                                <div class="spine-text">
-                                    <div class="book-title">Αστροφυσική & Κοσμολογία</div>
-                                    <div class="book-author">Ε. Λαζάρου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="astrophysics"></div>
+                        <div class="book" data-cover="book5" data-pdf="book5.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="psychology">
-                            <div class="book-spine color-6">
-                                <div class="spine-text">
-                                    <div class="book-title">Ψυχολογία του Βάθους</div>
-                                    <div class="book-author">Σ. Παπαδοπούλου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="psychology"></div>
+                        <div class="book" data-cover="book6" data-pdf="book6.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="economics">
-                            <div class="book-spine color-7">
-                                <div class="spine-text">
-                                    <div class="book-title">Οικονομική Ανάλυση</div>
-                                    <div class="book-author">Γ. Παπανδρέου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="economics"></div>
+                        <div class="book" data-cover="book7" data-pdf="book7.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="linguistics">
-                            <div class="book-spine color-8">
-                                <div class="spine-text">
-                                    <div class="book-title">Γλωσσολογία & Επικοινωνία</div>
-                                    <div class="book-author">Α. Μιχαηλίδης</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="linguistics"></div>
+                        <div class="book" data-cover="book8" data-pdf="book8.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
                     </div>
                     <div class="shelf-board-bottom"></div>
@@ -843,48 +620,56 @@
 
                 <!-- ΡΑΦΙ 3 -->
                 <div class="shelf-unit">
-                    <div class="shelf-board"></div>
+                    <div class="shelf-title">Εξαναγκασμένες ταλαντώσεις</div>
+<div class="shelf-board"></div>
                     <div class="books-row">
-                        <div class="book" data-cover="history">
-                            <div class="book-spine color-2">
-                                <div class="spine-text">
-                                    <div class="book-title">Ιστορικά Χειρόγραφα</div>
-                                    <div class="book-author">Ι. Σταμούλης</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="history"></div>
+                        <div class="book" data-cover="book9" data-pdf="book9.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="mathematics">
-                            <div class="book-spine color-4">
-                                <div class="spine-text">
-                                    <div class="book-title">Προηγμένα Μαθηματικά</div>
-                                    <div class="book-author">Δ. Οικονόμου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="mathematics"></div>
+                        <div class="book" data-cover="book10" data-pdf="book10.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="biology">
-                            <div class="book-spine color-1">
-                                <div class="spine-text">
-                                    <div class="book-title">Βιολογία της Εξέλιξης</div>
-                                    <div class="book-author">Π. Αλεξίου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="biology"></div>
+                        <div class="book" data-cover="book11" data-pdf="book11.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
-                        <div class="book" data-cover="politics">
-                            <div class="book-spine color-7">
-                                <div class="spine-text">
-                                    <div class="book-title">Πολιτική Θεωρία</div>
-                                    <div class="book-author">Θ. Βασιλείου</div>
-                                </div>
-                            </div>
-                            <div class="book-cover" data-image="politics"></div>
+                        <div class="book" data-cover="book12" data-pdf="book12.pdf">
+                            <div class="book-spine"></div>
+                            <div class="book-cover"></div>
                         </div>
                     </div>
                     <div class="shelf-board-bottom"></div>
                     <div class="shelf-board-floor"></div>
                 </div>
+<!-- ΜΕΤΑ ΑΠΟ ΤΟ ΡΑΦΙ 3, ΠΡΟΣΘΕΣΕ: -->
+
+<!-- ΡΑΦΙ 4 -->
+<div class="shelf-unit">
+    <div class="shelf-title">ΕΠΙΠΛΕΟΝ ΘΕΜΑΤΑ</div> <!-- ΑΛΛΑΞΕ ΤΟΝ ΤΙΤΛΟ -->
+    <div class="shelf-board"></div>
+    <div class="books-row">
+        <div class="book" data-cover="book13" data-pdf="book13.pdf">
+            <div class="book-spine"></div>
+            <div class="book-cover"></div>
+        </div>
+        <div class="book" data-cover="book14" data-pdf="book14.pdf">
+            <div class="book-spine"></div>
+            <div class="book-cover"></div>
+        </div>
+        <div class="book" data-cover="book15" data-pdf="book15.pdf">
+            <div class="book-spine"></div>
+            <div class="book-cover"></div>
+        </div>
+        <div class="book" data-cover="book16" data-pdf="book16.pdf">
+            <div class="book-spine"></div>
+            <div class="book-cover"></div>
+        </div>
+    </div>
+    <div class="shelf-board-bottom"></div>
+    <div class="shelf-board-floor"></div>
+</div>
             </div>
 
             <button class="nav-arrow right" id="nextShelf" aria-label="Επόμενο ράφι">
@@ -895,21 +680,32 @@
         <div class="shelf-indicators">
             <span class="indicator active" data-index="0"></span>
             <span class="indicator" data-index="1"></span>
-            <span class="indicator" data-index="2"></span>
+            <span class="indicator" data-index="2"></span> 
+<span class="indicator" data-index="3"></span>
+
         </div>
 
         <div id="selectedBookInfo">
             <h3>Επιλεγμένο Βιβλίο: <span id="bookName">-</span></h3>
-            <a id="readBookLink" href="#" class="read-btn" target="_blank">
-                <i class="fas fa-external-link-alt"></i> Διαβάστε το βιβλίο
-            </a>
+            
+            <div class="action-buttons">
+                <a id="readBookLink" href="#" class="action-btn read-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Διαβάστε το βιβλίο
+                </a>
+                
+               <a id="downloadBookLink" href="#" class="action-btn download-btn" target="_blank">
+                    <i class="fas fa-download"></i> Κατεβάστε PDF
+                </a>
+            </div>
+            
             <p style="font-size: 0.9rem; color: #b8b8b8; margin-top: 15px;">
                 Κάντε κλικ στο βιβλίο ή πατήστε ESC για να το κλείσετε
             </p>
         </div>
     </div>
 
-    <script>
+   
+ <script>
 // ΑΡΧΙΚΟΠΟΙΗΣΗ
 const track = document.getElementById('shelvesTrack');
 const shelves = document.querySelectorAll('.shelf-unit');
@@ -918,8 +714,141 @@ const books = document.querySelectorAll('.book');
 const bookInfoDiv = document.getElementById('selectedBookInfo');
 const bookNameSpan = document.getElementById('bookName');
 const bookLink = document.getElementById('readBookLink');
+const downloadLink = document.getElementById('downloadBookLink');
 const prevBtn = document.getElementById('prevShelf');
 const nextBtn = document.getElementById('nextShelf');
+
+// ΒΑΣΙΚΑ ΔΕΔΟΜΕΝΑ ΒΙΒΛΙΩΝ
+const bookData = {
+    'book1': {
+        title: 'Απλές Αρμονικές Ταλαντώσεις - Θέμα Α',
+        spine: 'https://i.postimg.cc/1zgMN219/aant-A.png',
+        cover: 'https://i.postimg.cc/VvprbG98/aa.png',
+        pdf: 'https://drive.google.com/file/d/1UmB8hDrhg1JXUhnTFOrIojU5yeBPkhz2/view?usp=sharing'
+    },
+    'book2': {
+        title: 'Απλές Αρμονικές Ταλαντώσεις - Θέμα Β',
+        spine: 'https://i.postimg.cc/HnTQ3PRb/aant-B1.png',
+ cover: 'https://i.postimg.cc/VLtF1pPj/bb.png',
+
+        pdf: 'https://drive.google.com/file/d/1Hri9-HNTWaqBCSGu13Ug5VyAXYG1zE2s/view?usp=sharing'
+    },
+    'book3': {
+        title: 'Απλές Αρμονικές Ταλαντώσεις - Θέμα Γ',
+        spine: 'https://i.postimg.cc/RZ2K202Z/aamt-G1.png',
+        cover: 'https://i.postimg.cc/fW66B7Rx/Copilot-20260121-001618.png',
+        pdf: 'https://drive.google.com/file/d/1oT7Im0G_nlGR8nQmdWZWmSYrhqwtD2qh/view?usp=sharing'
+    },
+    'book4': {
+        title: 'Απλές Αρμονικές Ταλαντώσεις - Θέμα Δ',
+        spine: 'https://i.postimg.cc/Qxt7t53W/aamt-D1.png',
+        cover: 'https://i.postimg.cc/1tDYd2t4/aat4.png',
+        pdf: 'https://drive.google.com/file/d/1NBA1FpJl2CtrdW1Jaz8ZVa9ywhT5QQDF/view?usp=sharing'
+    },
+    'book5': {
+        title: 'Φθίνουσες Ταλαντώσεις - Θέμα Α',
+        spine: 'https://i.postimg.cc/CKNvvC2n/d.png',
+        cover: 'https://i.postimg.cc/KY8YQjXM/phthin-tal-thema-A.png',
+        pdf: 'https://drive.google.com/file/d/18Tvu-CCKJK2L3n3uKkvFhr7JSSsNZbYc/view?usp=sharing'
+    },
+    'book6': {
+        title: 'Φθίνουσες Ταλαντώσεις - Θέμα Β',        
+spine: 'https://i.postimg.cc/0NDC3YHP/b.png',
+        cover: 'https://i.postimg.cc/0jN67jfh/BCO-a52ce11f-79de-4731-9929-c1d0ade0336e.png',
+        pdf: 'https://drive.google.com/file/d/1hdE048ogHMHMD9Ke8lG-HhygdiCvGzMC/view?usp=sharing'
+    },
+    'book7': {
+        title: 'Φθίνουσες Ταλαντώσεις - Θέμα Γ',
+        spine: 'https://i.postimg.cc/0jbKgx2F/g.png',
+        cover: 'https://i.postimg.cc/zDk6BB62/Copilot-20260120-013600.png',
+        pdf: 'https://drive.google.com/file/d/1jH5ah71Vlei0UR3sIW4aZ603bHtX_BTu/view?usp=sharing'
+    },
+    'book8': {
+        title: 'Φθίνουσες Ταλαντώσεις - Θέμα Δ',
+        spine: 'https://i.postimg.cc/sDW15TBf/a.png',
+        cover: 'https://i.postimg.cc/j5fWXB0c/133c01e3-cc7e-4a8c-a34e-649fff1dce0a.png',
+        pdf: 'https://drive.google.com/file/d/1kKhu_WWSSpDEGNnK50WSGDLlzIWdCUej/view?usp=sharing'
+    },
+    'book9': {
+        title: 'Εξαναγκασμένες ταλαντώσεις - Θέμα Α',
+        spine: 'https://i.postimg.cc/DyHrRJPm/A-ex.png',
+        cover: 'https://i.postimg.cc/V60rq424/a0ac9f98-501f-421e-b9b7-05a29daf2d13.png',
+        pdf: 'https://drive.google.com/file/d/1yo0QWdyUL9CFUuweSNenCc7IYEX8y28M/view?usp=sharing'
+    },
+    'book10': {
+        title: 'Εξαναγκασμένες ταλαντώσεις - Θέμα Β',
+        spine: 'https://i.postimg.cc/xTwm6r9y/B-ex.png0',
+        cover: 'https://i.postimg.cc/NM8YvHXL/28b774b8-1bb7-4299-9faf-afd98ead1908.png',
+        pdf: 'https://drive.google.com/file/d/14c5DPUeVTXUcc3GFb8QlJdGs0MO5fTYf/view?usp=sharing'
+    },
+    'book11': {
+        title: 'Εξαναγκασμένες ταλαντώσεις - Θέμα Γ',
+        spine: 'https://i.postimg.cc/pTch840y/G-ex.png',
+        cover: 'https://i.postimg.cc/hPvFpw2z/94b90fd3-1996-4957-a555-442c33239a3d.png',
+        pdf: 'https://drive.google.com/file/d/1st3V6I_bjzI1d9fxEXxc2aDY9cS_Y9dB/view?usp=sharing'
+ 
+    },
+    'book12': {
+        title: 'Εξαναγκασμένες ταλαντώσεις - Θέμα Δ',
+        spine: 'https://i.postimg.cc/7LxfRwdg/D-ej.png',
+        cover: 'https://i.postimg.cc/jqk3djht/d285d5ee-7267-4fd8-b525-14c6bc327f45.png',
+pdf: 'https://drive.google.com/file/d/1riTG64L9MNYYMawDD-T4wmLVOOCNiVNw/view?usp= sharing'
+ 
+    },
+'book13': {
+    title: 'Θέμα Ε',
+    spine: 'https://placehold.co/200x300/8B4513/FFFFFF?text=Spine+13',
+    cover: 'https://placehold.co/400x600/2C3E50/FFFFFF?text=Θέμα+Ε',
+    pdf: 'https://drive.google.com/'
+},
+'book14': {
+    title: 'Θέμα ΣΤ',
+    spine: 'https://placehold.co/200x300/8B4513/FFFFFF?text=Spine+14',
+    cover: 'https://placehold.co/400x600/2C3E50/FFFFFF?text=Θέμα+ΣΤ',
+    pdf: 'https://drive.google.com/'
+},
+'book15': {
+    title: 'Θέμα Ζ',
+    spine: 'https://placehold.co/200x300/8B4513/FFFFFF?text=Spine+15',
+    cover: 'https://placehold.co/400x600/2C3E50/FFFFFF?text=Θέμα+Ζ',
+    pdf: 'https://drive.google.com/'
+},
+'book16': {
+    title: 'Θέμα Η',
+    spine: 'https://placehold.co/200x300/8B4513/FFFFFF?text=Spine+16',
+    cover: 'https://placehold.co/400x600/2C3E50/FFFFFF?text=Θέμα+Η',
+    pdf: 'https://drive.google.com/'
+}
+};
+// ΑΡΧΙΚΟΠΟΙΗΣΗ ΕΙΚΟΝΩΝ
+books.forEach(book => {
+    const bookId = book.getAttribute('data-cover');
+    const data = bookData[bookId];
+    
+    if (data) {
+        const spine = book.querySelector('.book-spine');
+        const cover = book.querySelector('.book-cover');
+        
+        // ΡΑΧΗ
+        spine.style.background = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("${data.spine}")`;
+        spine.style.backgroundSize = 'cover';
+        spine.style.backgroundRepeat = 'no-repeat';
+        
+        // ΕΞΩΦΥΛΛΟ
+        cover.style.background = `url("${data.cover}")`;
+        cover.style.backgroundSize = 'cover';
+        cover.style.backgroundPosition = 'center';
+        cover.style.backgroundRepeat = 'no-repeat';
+        
+        // Για δεξιά βιβλία (άρτια)
+        const isRightBook = Array.from(book.parentElement.children).indexOf(book) % 2 === 1;
+        if (isRightBook) {
+            spine.style.backgroundPosition = 'center right 25%';
+        } else {
+            spine.style.backgroundPosition = 'center left 25%';
+        }
+    }
+});
 
 const totalShelves = shelves.length;
 let currentShelf = 0;
@@ -928,7 +857,6 @@ let autoSlideInterval;
 
 // ΣΥΝΑΡΤΗΣΗ ΜΕΤΑΚΙΝΗΣΗΣ ΣΕ ΡΑΦΙ
 function goToShelf(shelfIndex) {
-    // ΚΛΕΙΣΙΜΟ ΟΛΩΝ ΤΩΝ ΕΞΩΦΥΛΛΩΝ ΠΡΙΝ ΑΛΛΑΞΕΙ ΡΑΦΙ
     closeAllBookCovers();
     
     if (shelfIndex >= totalShelves) currentShelf = 0;
@@ -942,7 +870,6 @@ function goToShelf(shelfIndex) {
         ind.classList.toggle('active', idx === currentShelf);
     });
     
-    // ΚΛΕΙΣΙΜΟ ΠΛΗΡΟΦΟΡΙΩΝ ΒΙΒΛΙΟΥ
     bookInfoDiv.style.display = 'none';
     selectedBook = null;
 }
@@ -983,10 +910,11 @@ books.forEach(book => {
     book.addEventListener('click', function(e) {
         e.stopPropagation();
         
-        const title = this.querySelector('.book-title').textContent;
-        const author = this.querySelector('.book-author').textContent;
+        const bookId = this.getAttribute('data-cover');
+        const data = bookData[bookId];
         
-        // ΕΛΕΓΧΟΣ: Αν το ίδιο βιβλίο είναι ήδη επιλεγμένο, ΚΛΕΙΣΕ ΤΟ
+        if (!data) return;
+        
         if (this.classList.contains('selected')) {
             closeAllBookCovers();
             bookInfoDiv.style.display = 'none';
@@ -995,39 +923,91 @@ books.forEach(book => {
             return;
         }
         
-        // ΚΛΕΙΣΙΜΟ ΟΛΩΝ ΤΩΝ ΠΡΟΗΓΟΥΜΕΝΩΝ ΕΞΩΦΥΛΛΩΝ
         closeAllBookCovers();
-        
-        // ΑΝΟΙΓΜΑ ΜΟΝΟ ΤΟΥ ΝΕΟΥ ΕΞΩΦΥΛΛΟΥ
         this.classList.add('selected');
         
-        // ΕΠΙΘΕΤΙΚΗ ΜΕΤΑΚΙΝΗΣΗ - ΔΙΑΦΟΡΕΤΙΚΗ ΓΙΑ ΔΕΞΙΑ ΒΙΒΛΙΑ
-        const isRightBook = Array.from(this.parentElement.children).indexOf(this) % 2 === 1;
+       
+const isRightBook = Array.from(this.parentElement.children).indexOf(this) % 2 === 1;
         if (isRightBook) {
-            this.style.transform = 'translateY(-20px) translateX(-15px)'; // ΑΡΙΣΤΕΡΗ ΜΕΤΑΚΙΝΗΣΗ
+            this.style.transform = 'translateY(-20px) translateX(-15px)';
         } else {
-            this.style.transform = 'translateY(-20px) translateX(15px)'; // ΔΕΞΙΑ ΜΕΤΑΚΙΝΗΣΗ
+            this.style.transform = 'translateY(-20px) translateX(15px)';
         }
         
         this.style.zIndex = '1000';
         
-        // ΑΠΟΣΒΕΣΗ ΤΩΝ ΑΛΛΩΝ ΒΙΒΛΙΩΝ
         books.forEach(b => {
             if (b !== this) {
                 b.style.opacity = '0.7';
             }
         });
         
-        // ΕΝΗΜΕΡΩΣΗ ΠΛΗΡΟΦΟΡΙΩΝ
-        bookNameSpan.textContent = `${title} - ${author}`;
+        bookNameSpan.textContent = data.title;
         bookInfoDiv.style.display = 'block';
-        bookLink.href = "#";
+        // Και τα 2 κουμπιά παίρνουν το ίδιο PDF link
+// Και τα 2 κουμπιά παίρνουν το ίδιο PDF link
+if (data.pdf) {
+    const pdfLink = data.pdf;
+
+    // 👁 Ανάγνωση (πάντα το αρχικό link)
+    bookLink.href = pdfLink;
+    bookLink.target = "_blank";
+
+    // ⬇ Download (μετατροπή για download)
+    if (pdfLink.includes("drive.google.com") || pdfLink.includes("docs.google.com")) {
+        // Εξαγωγή File ID από ΟΛΕΣ τις μορφές Google
+        let fileId = '';
         
+        // Patterns για διάφορες μορφές Google links
+        const patterns = [
+            /\/file\/d\/([a-zA-Z0-9_-]+)/,           // /file/d/ID/
+            /\/document\/d\/([a-zA-Z0-9_-]+)/,       // /document/d/ID/
+            /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/,   // /spreadsheets/d/ID/
+            /\/presentation\/d\/([a-zA-Z0-9_-]+)/,   // /presentation/d/ID/
+            /id=([a-zA-Z0-9_-]+)/,                   // id=ID
+            /\/d\/([a-zA-Z0-9_-]+)/                  // /d/ID (γενικό)
+        ];
+        
+        for (const pattern of patterns) {
+            const match = pdfLink.match(pattern);
+            if (match && match[1]) {
+                fileId = match[1];
+                break;
+            }
+        }
+        
+        if (fileId) {
+            // Για Google Docs, χρειάζεται διαφορετικό export format
+            if (pdfLink.includes("/document/")) {
+                // Εξαγωγή ως PDF
+                downloadLink.href = `https://docs.google.com/document/d/${fileId}/export?format=pdf`;
+            } else {
+                // Για κανονικά αρχεία
+                downloadLink.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            }
+            downloadLink.setAttribute('download', `${data.title.replace(/[^a-z0-9]/gi, '_')}.pdf`);
+        } else {
+            downloadLink.href = pdfLink;
+        }
+    } else {
+        // Για μη-Google links
+        downloadLink.href = pdfLink;
+        downloadLink.setAttribute('download', `${data.title.replace(/[^a-z0-9]/gi, '_')}.pdf`);
+    }
+
+    downloadLink.target = "_blank";
+
+} else {
+    bookLink.href = "#";
+    downloadLink.href = "#";
+    downloadLink.removeAttribute('download');
+}
+
+      
         selectedBook = this;
         stopAutoSlide();
     });
     
-    // KEYBOARD SUPPORT
     book.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -1036,7 +1016,7 @@ books.forEach(book => {
     });
 });
 
-// ΚΛΙΚ ΕΞΩ ΑΠΟ ΒΙΒΛΙΟ
+// ΥΠΟΛΟΙΠΟΣ ΚΩΔΙΚΑΣ ΜΕΝΕΙ ΙΔΙΟΣ...
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.book') && selectedBook) {
         closeAllBookCovers();
@@ -1046,7 +1026,6 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// KEYBOARD CONTROLS
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && selectedBook) {
         closeAllBookCovers();
@@ -1064,7 +1043,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// TOUCH SWIPE
 let touchStartX = 0;
 const viewport = document.querySelector('.library-viewport');
 
@@ -1091,7 +1069,6 @@ viewport.addEventListener('touchend', (e) => {
     setTimeout(startAutoSlide, 3000);
 }, { passive: true });
 
-// ========== AUTO-SLIDE ==========
 function startAutoSlide() {
     if (autoSlideInterval) clearInterval(autoSlideInterval);
     
@@ -1114,23 +1091,51 @@ function resetAutoSlide() {
     setTimeout(startAutoSlide, 8000);
 }
 
-// Αρχική εκκίνηση auto-slide
 setTimeout(startAutoSlide, 2000);
 
-// PAUSE ON HOVER/TOUCH
 viewport.addEventListener('mouseenter', stopAutoSlide);
 viewport.addEventListener('mouseleave', () => {
     if (!selectedBook) startAutoSlide();
 });
 
-// PLACEHOLDER LINK
+// ΚΟΥΜΠΙ "ΔΙΑΒΑΣΤΕ ΤΟ ΒΙΒΛΙΟ"
 bookLink.addEventListener('click', function(e) {
     e.preventDefault();
-    const bookTitle = bookNameSpan.textContent.split(' - ')[0];
-    alert(`Το βιβλίο "${bookTitle}" θα είναι διαθέσιμο σύντομα.\nΓια πραγματική υλοποίηση, προσθέστε τον σύνδεσμο του βιβλίου.`);
+    const bookTitle = bookNameSpan.textContent;
+    
+    if (this.href && this.href !== "#") {
+        window.open(this.href, '_blank');
+        console.log(`📖 Ανοίγει: ${bookTitle}`);
+    } else {
+        alert(`📚 Το βιβλίο "${bookTitle}" δεν είναι διαθέσιμο για online ανάγνωση.`);
+    }
 });
 
-console.log('📚 Βιβλιοθήκη φορτώθηκε επιτυχώς!');
+// ΚΟΥΜΠΙ "ΚΑΤΕΒΑΣΤΕ PDF"
+downloadLink.addEventListener('click', function(e) {
+    const bookTitle = bookNameSpan.textContent;
+    
+    // ΕΛΕΓΧΟΣ για placeholder links
+    if (this.href === "#" || 
+        this.href.includes("πραγματικό-link-σου.gr") ||
+        !this.href || 
+        this.href.trim() === "") {
+        
+        e.preventDefault();
+        alert(`📄 Το βιβλίο "${bookTitle}" δεν είναι διαθέσιμο.`);
+        return false;
+    }
+    
+    // Αν είναι πραγματικό link, αφήνουμε το browser να κάνει το target="_blank"
+    console.log(`📄 PDF σε νέο tab: ${bookTitle}`);
+    // ΔΕΝ ΚΑΝΟΥΜΕ preventDefault() - ΑΦΗΝΟΥΜΕ ΤΟ DEFAULT BEHAVIOR
+});setTimeout(() => {
+    this.classList.add('selected');
+}, 100);
+if (!localStorage.getItem('libraryHintShown')) {
+    // μικρό tooltip: "Κάντε κλικ σε ένα βιβλίο"
+    localStorage.setItem('libraryHintShown', 'yes');
+}
 </script>
 </body>
 </html>
